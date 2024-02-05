@@ -1,19 +1,28 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import styled from 'styled-components';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+
+const Camera = XXX.YYY`
+    font-size: 1.5em;
+    text-align: center;
+    color: #e91e63;
+`;
+
+function Box() {
+    return (
+        <Camera>Affair</Camera>
+    );
+}
+
+
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <div className="App">
+        <Box />
+    </div>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+
+//Что должно быть вместо XXX и YYY, чтобы отобразился заголовок первого уровня?
+//❗ В ответе укажите значения через пробел, вот так: XXX YYY
