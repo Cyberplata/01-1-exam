@@ -1,73 +1,68 @@
 import ReactDOM from 'react-dom/client';
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const StyledApp = styled.div`
-    color: white;
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 250px 1fr;
-    grid-template-rows: 60px 1fr 60px;
-    grid-template-areas: 
-    "h h"
-    "s c"
-    "f f"
-`
-const StyledHeader = styled.header`
-    background-color: #5555ef;
-    padding: 20px;
+const ModalWindow = styled.div.attrs(() => ({
+    role: "XXX",
+    "aria-YYY": true
+}) )`
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     display: flex;
-    align-items: center;
-    grid-area: h;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #1f1d1d;
+`
 
-    a {
-        color: white
-    }
-`
-const StyledContent = styled.section`
-    color: #1f1d1d;
-    padding: 020px;
-    grid-area: c
-    
-`
-const StyledSidebar = styled.section`
-    border-right: 1px solid silver;
-    color: #1f1d1d;
-    grid-area: s;
-    
-`
-const StyledFooter = styled.footer`
-    background-color: #5555ef;
+const ModalContent = styled.div`
+    background-color: white;
+    max-width: 500px;
+    width: 100%;
     padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-area: f;
+    margin: auto;
+    border-radius: 10px
 `
+
+const Wrapper = styled.div`
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+`
+
+const StyledButton = styled.button<{ btnType: string }>`
+    border-radius: 5px;
+    border: 2px solid;
+    cursor: pointer;
+    padding: 15px;
+    flex-grow: 1;
+
+    ${props => props.btnType === "agreement" && css`
+        border-color: #2fbc69;
+        background-color: #5de79777;
+    `}
+    
+    ${props => props.btnType === "benefit" && css`
+        border-color: #e13c5f;
+        background-color: rgba(241, 94, 126, 0.4)
+    `}
+`
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-    <StyledApp>
-        <StyledHeader>
-            <a href="#">appointment-logo</a>
-        </StyledHeader>
-        <StyledSidebar>
-            <nav>
-                <ul>
-                    <li><a href="">amount</a></li>
-                    <li><a href="">analysis</a></li>
-                    <li><a href="">courage</a></li>
-                    <li><a href="">car</a></li>
-                </ul>
-            </nav>
-        </StyledSidebar>
-        <StyledContent>
-            <h1>
-                airport
-            </h1>
-        </StyledContent>
-        <StyledFooter>©access</StyledFooter>
-    </StyledApp>
+    <ModalWindow>
+        <ModalContent>
+            <h2>Подумай хорошо 🙇‍♂️</h2>
+            <p>Точно хочешь выучить swift?</p>
+            <Wrapper>
+                <StyledButton btnType="benefit">Нет ❌</StyledButton>
+                <StyledButton btnType="agreement">Да ✔️</StyledButton>
+            </Wrapper>
+        </ModalContent>
+    </ModalWindow>
 );
 
-// Что должно быть вместо XXX, YYY и ZZZ, чтобы разметка была семантическая?
-// ❗ В ответе укажите значения через пробел, вот так: XXX YYY ZZZ
+// Что должно быть вместо XXX и YYY, чтобы сделать модальное окно доступным?
+// ❗ В ответе укажите значения через пробел, вот так: XXX YYY
