@@ -1,63 +1,33 @@
+import styled from 'styled-components';
 import ReactDOM from 'react-dom/client';
-import styled, { css } from "styled-components";
 
 
-const StyledBonus = styled.button<AccountPropsType>`
-    padding: 8px 16px;
-    border-radius: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    text-align: center;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 25px;
-    cursor: pointer;
-    white-space: nowrap;
-    box-sizing: border-box;
+const StyledCycleField = styled.div`
+    max-width: 500px;
+    width: 100%;
+    height: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    overflow-y: auto;
+    margin-top: 12px;
+    border: 2px solid #dadee0;
+    font-family: sans-serif
+`
 
-    ${(props) =>
-            props.accountType === "primary" &&
-            css`
-      color: #ffffff;
-      background-color: #2182d9;
-    `}
-
-    ${(props) =>
-            props.accountType === "secondary" &&
-            css`
-      background-color: transparent;
-      color: #2182d9;
-      border: 2px solid #2182d9;
-      &:hover {
-        background-color: #2182d9;
-        color: #ffffff;
-      }
-    `}
-`;
-
-type AccountPropsType = {
-    accountType?: "primary" | "secondary"
-    disabled?: boolean
-};
-
-function Account(props: AccountPropsType) {
-    const { accountType, disabled} = props;
+function CycleField() {
     return (
-        <StyledBonus accountType={accountType} disabled={disabled}>
-            Cat
-        </StyledBonus>
-    );
+        <StyledCycleField contenteditable={true} />
+    )
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     <div className="App">
-        <Account accountType="secondary" />
+        <CycleField />
     </div>
 );
 
-
-// Что должно быть вместо XXX и YYY, чтобы код работал корректно?
-// ❗ В ответе укажите значения через пробел, вот так: XXX YYY
+// Какой атрибут должен быть вместо XXX, чтобы стилизованный компонент, который по сути является тегом <div>, стал редактируемым полем для ввода текста?
