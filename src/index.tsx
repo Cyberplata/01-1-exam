@@ -1,39 +1,24 @@
-import styled from "styled-components";
 import ReactDOM from 'react-dom/client';
+import styled from "styled-components";
 
-const StyledBreath = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
 
-    @media screen and (max-width: 768px) {
-        gap: 20px;
-    }
+const BirthImg = styled.img`
+    height: 400px;
+    width: 400px;
+    object-fit: contain
 `
 
-const StyledChampionship = styled.div`
-    padding: 20px;
-    background-color: #8ab2ea;
-    color: #fff
-`
-
-function Camera() {
-    return (
-        <StyledBreath>
-            <StyledChampionship>Svetlana</StyledChampionship>
-            <StyledChampionship>Artem</StyledChampionship>
-            <StyledChampionship>Maria</StyledChampionship>
-            <StyledChampionship>Maxim</StyledChampionship>
-        </StyledBreath>
-
-    );
-}
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     <div className="App">
-        <Camera />
+        <BirthImg
+            src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1-1174935.png?f=webp"
+
+            srcSet="https://brandlogos.net/wp-content/uploads/2020/09/react-logo-512x512.png 2x, https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png 3x" />
     </div>
 );
 
-// Что должно быть вместо XXX, чтобы на экранах меньше 768px отступы между ячейками стали 20px?
+
+// Что должно быть вместо XXX, YYY и ZZZ, чтобы код работал корректно и для экранов с разной плотностью пикселей загружалось правильное изображение?
+//❗ В ответе укажите значения через пробел, вот так: XXX YYY ZZZ
