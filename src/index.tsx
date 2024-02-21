@@ -1,73 +1,44 @@
 import ReactDOM from 'react-dom/client';
-import styled from "styled-components";
+import styled from 'styled-components';
 
-const StyledApp = styled.div`
-    color: white;
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 250px 1fr;
-    grid-template-rows: 60px 1fr 60px;
-    grid-template-areas: 
-    "h h"
-    "s c"
-    "f f"
-`
-const StyledHeader = styled.header`
-    background-color: #5555ef;
+
+const StyledCareer = styled.div`
+    width: 100%;
+    max-width: 900px;
+    background-color: #009688;
+    border-radius: 10px;
     padding: 20px;
     display: flex;
-    align-items: center;
-    grid-area: h;
+    gap: 20px
+`
 
-    a {
-        color: white
+const StyledAddress = styled.div`
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    background-color: #fefefe;
+
+    &:last-child {
+        width: 100%;
     }
 `
-const StyledContent = styled.section`
-    color: #1f1d1d;
-    padding: 020px;
-    grid-area: c
-    
-`
-const StyledSidebar = styled.aside`
-    border-right: 1px solid silver;
-    color: #1f1d1d;
-    grid-area: s;
-    
-`
-const StyledFooter = styled.footer`
-    background-color: #5555ef;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-area: f;
-`
+
+function Coast() {
+    return (
+        <StyledCareer>
+            <StyledAddress/>
+            <StyledAddress/>
+            <StyledAddress/>
+        </StyledCareer>
+    )
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-    <StyledApp>
-        <StyledHeader>
-            <a href="#">answer-logo</a>
-        </StyledHeader>
-        <StyledSidebar>
-            <nav>
-                <ul>
-                    <li><a href="">cookie</a></li>
-                    <li><a href="">analyst</a></li>
-                    <li><a href="">chocolate</a></li>
-                    <li><a href="">company</a></li>
-                </ul>
-            </nav>
-        </StyledSidebar>
-        <StyledContent>
-            <h1>
-                collection
-            </h1>
-        </StyledContent>
-        <StyledFooter>©breath</StyledFooter>
-    </StyledApp>
+    <div className="App">
+        <Coast />
+    </div>
 );
 
-// Что должно быть вместо XXX, YYY и ZZZ, чтобы разметка была семантическая?
-// ❗ В ответе укажите значения через пробел, вот так: XXX YYY ZZZ
+
+// В родительском элементе есть 3 дочерних элемента определенной ширины. Что должно быть вместо XXX и YYY, чтобы последний дочерний элемент занял все свободное пространство по горизонтали?
