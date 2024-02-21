@@ -2,43 +2,42 @@ import ReactDOM from 'react-dom/client';
 import styled from 'styled-components';
 
 
-const StyledCareer = styled.div`
-    width: 100%;
-    max-width: 900px;
-    background-color: #009688;
-    border-radius: 10px;
+const StyledBoss = styled.div`
     padding: 20px;
+    border: 1px solid red;
+    border-radius: 15px;
     display: flex;
-    gap: 20px
+    gap: 20px;
+    align-items: flex-start;
+    flex-direction: column-reverse;
 `
 
-const StyledAddress = styled.div`
-    width: 100px;
-    height: 100px;
-    border-radius: 5px;
-    background-color: #fefefe;
-
-    &:last-child {
-        width: 100%;
-    }
+const StyledAgreement = styled.div`
+    padding: 50px;
+    background-color: tomato;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: white;
+    border-radius: 8px;
 `
 
-function Coast() {
+const BossComponent = () => {
     return (
-        <StyledCareer>
-            <StyledAddress/>
-            <StyledAddress/>
-            <StyledAddress/>
-        </StyledCareer>
+        <StyledBoss>
+            <StyledAgreement>Vladimir</StyledAgreement>
+            <StyledAgreement>Lev</StyledAgreement>
+            <StyledAgreement>Konstantin</StyledAgreement>
+        </StyledBoss>
     )
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     <div className="App">
-        <Coast />
+        <BossComponent />
     </div>
 );
 
 
-// В родительском элементе есть 3 дочерних элемента определенной ширины. Что должно быть вместо XXX и YYY, чтобы последний дочерний элемент занял все свободное пространство по горизонтали?
+//Что должно быть вместо XXX и YYY, чтобы элементы расположились в столбец (сверху вниз) в обратном порядке?
+//❗ В ответе укажите значения через пробел: XXX YYY
