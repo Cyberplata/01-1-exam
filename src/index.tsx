@@ -1,26 +1,26 @@
-import ReactDOM from 'react-dom/client';
 import styled from "styled-components";
+import ReactDOM from 'react-dom/client';
 
-export const StyledBusiness = styled.div`
-    background: url("https://cdn.iconscout.com/icon/free/png-256/free-css3-8-1175200.png") center/cover no-repeat;
+const StyledBird = styled.button`
+    font-weight: 700;
+    background-color: #5379ed;
+    color: #fff;
+    border-radius: 4px;
+    width: 250px;
+    height: 40px;
+    border: none;
 
-    @media (orientation: landscape), (min-width: 1200px) {
-        width: 500px;
-        height: 500px;
+    @media (min-width: 576px) and (max-width: 768px) {
+        width: 100%;
     }
-    @media  (orientation: portrait), (max-width: 768px) {
-        width: 250px;
-        height: 250px;
-    }
-`;
+`
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     <div className="App">
-        <StyledBusiness />
+        <StyledBird>c#</StyledBird>
     </div>
 );
 
-
-// Какие значения должны быть вместо XXX, YYY и ZZZ, чтобы для элемента большое изображение было на десктопе или ландшафтной ориентации, а маленькое - на мобилках или портретой ориентации?
-// ❗ В ответе укажите значения через пробел вот так: XXX YYY ZZZ
+// Что должно быть вместо XXX, YYY и ZZZ, чтобы ширина элемента стала 100% на разрешении в промежутке от 576px до 768px?
+// ❗ В ответе укажите значения через пробел, вот так: XXX YYY ZZZ
