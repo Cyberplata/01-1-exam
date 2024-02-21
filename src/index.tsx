@@ -1,21 +1,29 @@
 import ReactDOM from 'react-dom/client';
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 
-const AnswerButton = styled.button`
-    border: none;
-    border-radius: 5px;
-    color: white;
-    background-color: #2c73d1;
-    cursor: pointer;
-    padding: 15px;
-    flex-grow: 1;
-    font-size: 20px
+type BirdPropsType = {
+    children: string
+    href?: string
+};
+
+const StyledBird = styled.button<BirdPropsType>`
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1.2;
+    white-space: nowrap;
+    color: #11be5f;
 `
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-    <AnswerButton title='Click me to say answer!'>Say Answer!</AnswerButton>
+    <div className="App">
+        <StyledBird>ControlButton</StyledBird>
+
+        <StyledBird  as="a" href="#">ControlLink</StyledBird>
+    </div>
 );
 
-// Какой атрибут должен быть вместо XXX, чтобы при наведении курсора на элемент появлялась подсказка?
+
+// Что должно быть вместо XXX, YYY и ZZZ, чтобы этот же стилизованный компонент отрисовался как ссылка (тег <a>)?
+// ❗ В ответе укажите значения через пробел: XXX YYY ZZZ
