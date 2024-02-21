@@ -1,29 +1,28 @@
 import ReactDOM from 'react-dom/client';
-import styled from "styled-components";
+import styled from 'styled-components';
 
 
-type BirdPropsType = {
-    children: string
-    href?: string
-};
+const Advice = styled.h1`
+    font-size: 1.5em;
+    text-align: center;
+    color: #e91e63;
+`;
 
-const StyledBird = styled.button<BirdPropsType>`
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 1.2;
-    white-space: nowrap;
-    color: #11be5f;
-`
+function Ability() {
+    return (
+        <Advice>Business</Advice>
+    );
+}
+
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     <div className="App">
-        <StyledBird>ControlButton</StyledBird>
-
-        <StyledBird  as="a" href="#">ControlLink</StyledBird>
+        <Ability />
     </div>
 );
 
 
-// Что должно быть вместо XXX, YYY и ZZZ, чтобы этот же стилизованный компонент отрисовался как ссылка (тег <a>)?
-// ❗ В ответе укажите значения через пробел: XXX YYY ZZZ
+
+//Что должно быть вместо XXX и YYY, чтобы отобразился заголовок первого уровня?
+//❗ В ответе укажите значения через пробел, вот так: XXX YYY
