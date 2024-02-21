@@ -1,33 +1,39 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import ReactDOM from 'react-dom/client';
 
+const StyledBreath = styled.div`
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
 
-const StyledCycleField = styled.div`
-    max-width: 500px;
-    width: 100%;
-    height: 20px;
-    font-weight: 400;
-    font-size: 16px;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    overflow-y: auto;
-    margin-top: 12px;
-    border: 2px solid #dadee0;
-    font-family: sans-serif
+    @media screen and (max-width: 768px) {
+        gap: 20px;
+    }
 `
 
-function CycleField() {
+const StyledChampionship = styled.div`
+    padding: 20px;
+    background-color: #8ab2ea;
+    color: #fff
+`
+
+function Camera() {
     return (
-        <StyledCycleField contenteditable={true} />
-    )
+        <StyledBreath>
+            <StyledChampionship>Svetlana</StyledChampionship>
+            <StyledChampionship>Artem</StyledChampionship>
+            <StyledChampionship>Maria</StyledChampionship>
+            <StyledChampionship>Maxim</StyledChampionship>
+        </StyledBreath>
+
+    );
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     <div className="App">
-        <CycleField />
+        <Camera />
     </div>
 );
 
-// Какой атрибут должен быть вместо XXX, чтобы стилизованный компонент, который по сути является тегом <div>, стал редактируемым полем для ввода текста?
+// Что должно быть вместо XXX, чтобы на экранах меньше 768px отступы между ячейками стали 20px?
