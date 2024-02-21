@@ -1,43 +1,43 @@
+import styled from "styled-components";
 import ReactDOM from 'react-dom/client';
-import styled from 'styled-components';
 
 
-const StyledBoss = styled.div`
-    padding: 20px;
-    border: 1px solid red;
-    border-radius: 15px;
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    flex-direction: column-reverse;
+const StyledCousinInput = styled.input`
+    width: 350px;
+    height: 35px;
+    background-color: transparent;
+    border: 1px solid #626673;
+    border-radius: 5px;
+    caret-color: #2d2f38;
+    padding: 8px 20px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #2d2f38;
+
+    &::placeholder {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: #a3a9ba;
+        background-color: red;
+    }
 `
 
-const StyledAgreement = styled.div`
-    padding: 50px;
-    background-color: tomato;
-    font-family: sans-serif;
-    font-size: 20px;
-    color: white;
-    border-radius: 8px;
-`
 
-const BossComponent = () => {
+const CousinInput = () => {
     return (
-        <StyledBoss>
-            <StyledAgreement>Vladimir</StyledAgreement>
-            <StyledAgreement>Lev</StyledAgreement>
-            <StyledAgreement>Konstantin</StyledAgreement>
-        </StyledBoss>
-    )
-}
+        <StyledCousinInput placeholder="Type cousin here..."/>
+    );
+};
+
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     <div className="App">
-        <BossComponent />
+        <CousinInput />
     </div>
 );
 
 
-//Что должно быть вместо XXX и YYY, чтобы элементы расположились в столбец (сверху вниз) в обратном порядке?
-//❗ В ответе укажите значения через пробел: XXX YYY
+// Что должно быть вместо XXX, чтобы стили применились к подсказке в текстовом поле?
