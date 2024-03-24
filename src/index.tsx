@@ -1,55 +1,42 @@
 import ReactDOM from 'react-dom/client';
 import styled, { keyframes } from "styled-components";
 
-
-
-const abilityAnimation = keyframes`
-    from {
-        transform: translateY(0) translateX(0);
-    }
-    25% {
-        background-color: red;
-        transform: translateY(500px) translateX(150px);
-    }
-    50% {
-        transform: translateY(400px) translateX(250px);
-    }
-    70% {
-        transform: translateY(500px) translateX(420px);
-    }
-    90% {
-        transform: translateY(480px) translateX(480px);
-    }
+const article = keyframes`
     to {
-        transform: translateY(500px) translateX(500px);
+        width: 100%;
     }
 `
 
-const StyledBasketBox = styled.div`
-    height: 500px;
-    width: 500px;
-    border: 1px solid;
-    padding: 20px;
+const Business = styled.div`
+    height: 50px;
+    padding: 10px;
+    max-width: 1200px;
+    background-color: #e0e2e3;
+    border-radius: 10px;
+    padding: 10px;
 `
 
-const StyledAbility = styled.div`
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #c16ae1;
-    transform-origin: center;
-    animation: ${abilityAnimation} 2s ease-in;
-    animation-fill-mode: forwards;
+const Appearance = styled.div`
+    width: 0;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #6aade1;
+    animation: ${article} 2s infinite :nth-child(even);
+
+    &:hover {
+        animation-play-state: paused;
+    }
 `
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     <div className="App">
-        <StyledBasketBox>
-            <StyledAbility/>
-        </StyledBasketBox>
+        <Business>
+            <Appearance />
+        </Business>
     </div>
 );
 
-// Что должно быть вместо XXX и YYY, чтобы после проигрывания анимация остановилась на последнем ключевом кадре?
-//❗ В ответе укажите значения через пробел, вот так: XXX YYY
+
+// Что должно быть вместо XXX, YYY и ZZZ, чтобы каждый нечетный повтор анимация проигрывалась в нормальном порядке, а каждый четный повтор в обратном. И при наведении курсора мыши на анимируемый элемент, анимация должна "замирать".
+//❗ В ответе укажите значения через пробел: XXX YYY ZZZ
