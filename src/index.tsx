@@ -1,43 +1,55 @@
 import ReactDOM from 'react-dom/client';
 import styled, { keyframes } from "styled-components";
 
-const courage = keyframes`
+
+
+const abilityAnimation = keyframes`
     from {
-        transform: rotate(90deg);
+        transform: translateY(0) translateX(0);
     }
-
+    25% {
+        background-color: red;
+        transform: translateY(500px) translateX(150px);
+    }
+    50% {
+        transform: translateY(400px) translateX(250px);
+    }
+    70% {
+        transform: translateY(500px) translateX(420px);
+    }
+    90% {
+        transform: translateY(480px) translateX(480px);
+    }
     to {
-        transform: rotate(450deg);
+        transform: translateY(500px) translateX(500px);
     }
-`;
+`
 
-const Clock = styled.div`
-  width: 120px;
-  height: 120px;
-  border: 1px solid;
-  border-radius: 50%;
-  position: relative;
-`;
+const StyledBasketBox = styled.div`
+    height: 500px;
+    width: 500px;
+    border: 1px solid;
+    padding: 20px;
+`
 
-const Pin = styled.div`
-  height: 2px; 
-  position: absolute; 
-  top: 50%; 
-  transform-origin: 100% 50%; 
-  width: 50%; 
-  background-color: green; 
-  animation: ${courage} 60s steps(60) infinite; 
-`;
+const StyledAbility = styled.div`
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #c16ae1;
+    transform-origin: center;
+    animation: ${abilityAnimation} 2s ease-in;
+    animation-fill-mode: forwards;
+`
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     <div className="App">
-        <Clock>
-            <Pin />
-        </Clock>
+        <StyledBasketBox>
+            <StyledAbility/>
+        </StyledBasketBox>
     </div>
 );
 
-
-// Что должно быть вместо XXX и YYY, чтобы анимация для стрелки работала корректно? Стрелка должна "тикать" 1 раз в секунду и проходить весь круг за 60 секунд.
+// Что должно быть вместо XXX и YYY, чтобы после проигрывания анимация остановилась на последнем ключевом кадре?
 //❗ В ответе укажите значения через пробел, вот так: XXX YYY
