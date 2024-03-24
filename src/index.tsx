@@ -1,25 +1,43 @@
 import ReactDOM from 'react-dom/client';
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
+const courage = keyframes`
+    from {
+        transform: rotate(90deg);
+    }
 
-const CurrencyImg = styled.img`
-    object-fit: contain;
-    max-width: 1200px
-`
+    to {
+        transform: rotate(450deg);
+    }
+`;
 
+const Clock = styled.div`
+  width: 120px;
+  height: 120px;
+  border: 1px solid;
+  border-radius: 50%;
+  position: relative;
+`;
+
+const Pin = styled.div`
+  height: 2px; 
+  position: absolute; 
+  top: 50%; 
+  transform-origin: 100% 50%; 
+  width: 50%; 
+  background-color: green; 
+  animation: ${courage} 60s steps(60) infinite; 
+`;
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     <div className="App">
-        <CurrencyImg
-            src="https://brandlogos.net/wp-content/uploads/2020/09/react-logo-512x512.png"
-            srcSet="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1-1174935.png 85w, https://brandlogos.net/wp-content/uploads/2020/09/react-logo-512x512.png 512w, https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png 1200w"
-            sizes="(max-width: 600px) 85px, (max-width: 800px) 512px, 1200px"
-            alt="Currency" />
+        <Clock>
+            <Pin />
+        </Clock>
     </div>
 );
 
 
-
-// Посмотрите внимательно на код. Изображение с каким логотипом (Node.js, React или Angular) будет отображаться на экране шириной 768px?
-// ❗ Перед проверкой не забывате очищать cache (при открытой консоли разработчика, правой клавишей мыши по кнопке перезагрузка страницы -> Очистка кэша и жесткая перезагрузка)
+// Что должно быть вместо XXX и YYY, чтобы анимация для стрелки работала корректно? Стрелка должна "тикать" 1 раз в секунду и проходить весь круг за 60 секунд.
+//❗ В ответе укажите значения через пробел, вот так: XXX YYY
